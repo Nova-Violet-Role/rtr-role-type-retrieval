@@ -1,0 +1,43 @@
+title: "[Q&A] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Questions are never noise here.** If our documentation had answered
+        this, you would not be asking — so an unanswerable question is usually
+        our defect, and often becomes a documentation fix.
+
+        You do not need to be polished. You do need to be reproducible.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: What you are trying to do
+      description: The goal, not only the error. Knowing where you were headed often changes the answer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: What you tried, and what happened
+      description: Commands and their real output, including exit codes where relevant.
+      render: shell
+    validations:
+      required: false
+
+  - type: input
+    id: env
+    attributes:
+      label: Repository and platform
+      placeholder: "rtr-role-type-retrieval on Windows 11 / PowerShell 7"
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        If it turns out to be a defect rather than a question, we will say so and
+        move it to an issue. You do not need to guess correctly to get help.

@@ -1,0 +1,19 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Anything that does not fit the other categories. If you are unsure where
+        something belongs, this is the right place — it will be moved for you and
+        nobody will mind.
+
+        Two things that do **not** belong here:
+        - **Security findings.** Never post those publicly — use the affected
+          repository's private advisory form.
+        - **Conduct concerns.** Those go privately to the organisation owner.
+
+  - type: textarea
+    id: body
+    attributes:
+      label: What's on your mind
+    validations:
+      required: true

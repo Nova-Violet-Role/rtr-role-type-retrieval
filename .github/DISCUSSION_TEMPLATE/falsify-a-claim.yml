@@ -1,0 +1,84 @@
+title: "[Falsify] "
+labels: ["falsify-a-claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is the room for attacking a claim we have made — a theorem, a
+        measurement, a number in a README, a sentence in a commit message.
+
+        You do not need to be right. You need to name the claim precisely and
+        say what would settle it. A refutation that fails is still worth having:
+        it turns an assumption into something that survived an attack.
+
+        If you already have the counter-example in hand and it is unambiguous,
+        open a **false claim** issue instead — that path is for defects with
+        evidence attached. This one is for the experiment before the verdict.
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim, quoted verbatim
+      description: >
+        Copy it exactly as written. Paraphrase is where most disagreements
+        actually live — half of them dissolve once the original wording is on
+        the table.
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Where it is stated
+      description: >
+        A permalink, or `path/to/file.ext:LINE`. If it is a claim we made in
+        conversation rather than in the tree, say so — that is a finding in
+        itself, because it means the claim was never written down.
+    validations:
+      required: true
+
+  - type: textarea
+    id: refutation
+    attributes:
+      label: What would refute it
+      description: >
+        The observation that, if it occurred, would force us to withdraw the
+        claim. Be concrete: an input, a command, an exit code, a counter-example.
+        A claim with no stated refutation is not a claim we should have made.
+    validations:
+      required: true
+
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What you ran, and what happened
+      description: >
+        Paste the command and its real output, including the exit code read
+        directly. Negative results belong here too — "I tried to break it this
+        way and it held" is evidence, and we would rather have it than not.
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: standing
+    attributes:
+      label: Where does this stand right now?
+      options:
+        - I think the claim is wrong and I can show it
+        - I suspect it is wrong but I cannot yet demonstrate it
+        - The claim may be true but is stated more strongly than the evidence supports
+        - The claim is untestable as written and needs restating before it can be judged
+        - I tried to refute it and failed — recording the attempt
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Before you post
+      options:
+        - label: I have quoted the claim rather than summarising it
+          required: true
+        - label: I have said what would change my mind, not only what I believe
+          required: false

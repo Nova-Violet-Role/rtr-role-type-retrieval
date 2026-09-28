@@ -1,0 +1,38 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Early and half-formed is welcome here. This is the room for thinking out
+        loud — a worked proposal with costs and migrations belongs in an issue,
+        but it does not have to start there.
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem it would solve
+      description: >
+        Stated without reference to the solution, if you can. An idea that
+        cannot name its problem is worth discussing anyway — say so, and we will
+        look for the problem together.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: How settled is this?
+      options:
+        - A hunch — I want reactions before I think harder about it
+        - A real design — I have considered the cost and I am arguing for it
+        - I am willing to implement it if there is appetite
+    validations:
+      required: true

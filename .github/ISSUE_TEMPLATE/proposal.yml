@@ -1,0 +1,58 @@
+name: Proposal or design argument
+description: A feature, a change of shape, or an argument that something should be done differently.
+title: "proposal: "
+labels: ["proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposals are welcome and are argued on merit. The bar is not
+        enthusiasm — it is a clear statement of the problem and an honest
+        account of the cost.
+
+        If this is an early idea rather than a worked argument, an **Ideas
+        discussion** is the better home and nobody will mind if you start there.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem, stated without reference to your solution
+      description: If the problem cannot be stated on its own, the proposal is a solution looking for one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+    validations:
+      required: true
+
+  - type: textarea
+    id: cost
+    attributes:
+      label: What it costs
+      description: >
+        Complexity, new dependencies, maintenance burden, breaking changes,
+        things that become harder. A proposal with no stated cost reads as
+        unexamined.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you considered and rejected, and why
+    validations:
+      required: false
+
+  - type: dropdown
+    id: breaking
+    attributes:
+      label: Would this break existing users?
+      options:
+        - "No"
+        - "Yes, and I describe the migration below"
+        - "I do not know"
+    validations:
+      required: true

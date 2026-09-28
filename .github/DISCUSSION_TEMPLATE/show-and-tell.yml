@@ -1,0 +1,34 @@
+title: "[Show] "
+labels: ["show-and-tell"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Something you built with one of these tools, a workflow you worked out,
+        a proof you wrote, a way you broke it and what you learned.
+
+        **Reports of breaking our tools are welcome here as much as successes.**
+        "I pushed this until it fell over, here is where" is a genuinely useful
+        post.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What you made or found
+    validations:
+      required: true
+
+  - type: input
+    id: link
+    attributes:
+      label: Link, if there is one
+    validations:
+      required: false
+
+  - type: textarea
+    id: surprise
+    attributes:
+      label: What surprised you
+      description: The part that did not go as expected is usually the most useful part for everyone else.
+    validations:
+      required: false

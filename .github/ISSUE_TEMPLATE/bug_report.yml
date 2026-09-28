@@ -1,0 +1,85 @@
+name: Something is broken
+description: A reproducible defect — wrong output, a crash, a gate that passes when it should not.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reproducibility is the whole game. A report we can run is worth ten we
+        can only read.
+
+        If you are reporting that a **check passes while the thing it checks is
+        broken**, that is the highest-value defect class we have — say so
+        explicitly in the summary.
+
+  - type: input
+    id: repo
+    attributes:
+      label: Which repository, and which version
+      placeholder: "rtr-role-type-retrieval @ 0.3.0, or commit 673266b"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: The exact commands, and their exit codes
+      description: >
+        Read exit codes DIRECTLY — `cmd; echo "exit=$?"`. Never through a pipe:
+        `cmd | grep …` reports grep's status, not cmd's, and that has produced a
+        false green in this organisation's own history.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what happened instead
+    validations:
+      required: true
+
+  - type: dropdown
+    id: class
+    attributes:
+      label: What kind of defect is this?
+      options:
+        - Wrong output or wrong behaviour
+        - A crash, hang, or a command that never returns
+        - A check passes while the thing it checks is broken (vacuous gate)
+        - A check fails while the thing it checks is fine (false alarm)
+        - An installer or release artefact does not match its sources
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Platform
+      placeholder: "Windows 11 / Git Bash 2.55, or Ubuntu 24.04 / bash 5.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: unverified
+    attributes:
+      label: What you could NOT check
+      description: >
+        An honest gap is a result. "I only have Windows" is a fine answer and a
+        far better one than silence.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: hygiene
+    attributes:
+      label: Before submitting
+      options:
+        - label: I reproduced this on a clean checkout, not only in my working tree.
+          required: false
+        - label: I read the exit code directly rather than through a pipe.
+          required: false
+        - label: This is not a security issue (those go through the private advisory form).
+          required: true

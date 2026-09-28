@@ -1,0 +1,63 @@
+name: A claim in our docs is false
+description: Something a README, CHANGELOG or release note asserts does not hold. The most welcome report there is.
+title: "false claim: "
+labels: ["false-claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This organisation's documentation makes **measurable** claims on purpose —
+        theorem counts, timings, exit codes, "this gate has a negative control".
+        Any of them can be wrong.
+
+        A report that falsifies one is treated as a defect in the documentation,
+        not as an inconvenience and not as an attack. It is the fastest way to
+        improve any of these projects, and it is credited in the changelog.
+
+  - type: input
+    id: where
+    attributes:
+      label: Where the claim is
+      description: Repository, file, and line if you have it.
+      placeholder: "rtr-role-type-retrieval — eval/TAXONOMY.md, rtr-full leads combined"
+    validations:
+      required: true
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim, quoted exactly
+    validations:
+      required: true
+
+  - type: textarea
+    id: contradiction
+    attributes:
+      label: The measurement that contradicts it
+      description: >
+        A command and its real output. If the claim is a number, show how you
+        counted. Read exit codes directly — never through a pipe.
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of wrong is it?
+      options:
+        - The claim is simply false
+        - The claim is true but weaker than it sounds (overclaim)
+        - The claim was true and has expired (a snapshot presented as a standing property)
+        - The claim cannot be checked at all as written
+        - The claim is true but the thing it measures is vacuous
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Where you measured it
+      description: OS, tool version or commit hash. A claim can be true on one platform and false on another — that is still a defect, and knowing which one saves a round trip.
+    validations:
+      required: false

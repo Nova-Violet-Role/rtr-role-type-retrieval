@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability (private)
+    url: https://github.com/Nova-Violet-Role/.github/blob/main/SECURITY.md
+    about: Gate evasion, record forgery, fence escape, credential exposure. Never open a public issue for these -- use the affected repository's private advisory form.
+  - name: Ask a question
+    url: https://github.com/Nova-Violet-Role/.github/blob/main/SUPPORT.md
+    about: Questions are never noise here. If our documentation had answered it, you would not be asking -- so an unanswerable question is usually our defect.
+  - name: Code of Conduct
+    url: https://github.com/Nova-Violet-Role/.github/blob/main/CODE_OF_CONDUCT.md
+    about: Attacking the claims is the work. Attacking people is not.
+  - name: How to contribute
+    url: https://github.com/Nova-Violet-Role/.github/blob/main/CONTRIBUTING.md
+    about: Read the exit code directly. Watch your test fail. Say what you could not verify.

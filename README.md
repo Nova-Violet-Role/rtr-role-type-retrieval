@@ -97,6 +97,51 @@ python eval/bench_versus.py                        # full versus bench -> eval/r
 
 ---
 
+## 🥚 The Easter Egg — why this retriever thinks in roles, and where it is going
+
+> *"Welcome to Ikebukuro — a city where countless stories intersect. And the
+> solution **I found when inspecting how Models and Rankings vote together**.
+> I continued to search. For a memory that never loses its head. Joy. The joy
+> of recall **or the Artificial Memory**. Every document the protagonist of
+> its own story. However, **what if** the faceless votes of the crowd
+> **(the RRF consensus that derives from them)** converge on the one page
+> that was lost?"*
+> — Saimonokuma, **The Convergence Equation**
+
+The original is the premise of *Durarara!!*: no single protagonist, only a
+city where stories collide and something coherent walks out. The insertions
+are RTR, and each one names a component that is now code:
+
+| # | inserted | what it turned on |
+|---|---|---|
+| 1 | *"Models and Rankings **vote** together"* | the ensemble ballot. RRF fuses rankings, never raw scores — the Dollars vote faceless, and consensus needs no identity |
+| 2 | *"memory that never loses its **head**"* | Celty's search is the product spec. Agents lose context the way she lost her head; retrieval is the city helping her find it |
+| 3 | *"or the **Artificial Memory**"* | names the target: a memory that is constructed, persistent, local — what RTR ships |
+| 4 | *"the **RRF consensus** that derives from them"* | points at `_fused_multi`. The intersection is a *mechanism*, not a mood |
+| 5 | *"**what if** … **?**"* | turns an assertion into an open question — and the `eval/` bench is the instrument that answers it, per release |
+
+### The same thing applies to RoT, our oT variants
+
+Roles are turbos. Lenses, models, sub-queries — anything that can vote gets
+a ballot and a weight, and the fusion never asks what stage anyone performed
+on. That is the whole approach, and it ports: **whatever RoT routes by role,
+RTR retrieves by role**, same ballot box.
+
+### 🔮 Symbiose — announced, not shipped
+
+The coming model uses the same RoT approach to be **Dense and MoE at the
+same time** — dense parameters that route like experts, experts that share
+one dense heart — with the RTR approach fused in from the first layer rather
+than bolted on after. When it lands, the bench will be the announcement:
+same corpora, same taxons, no adjectives. Until then this paragraph is a
+promise, and promises are not results.
+
+> *— Note of (Saimonokuma) the Creator: rally engineers twin-charged out of
+> love for the paradigm and rewrote the car world by accident. We run twin
+> models for the same reason. If Symbiose does to AI what bi-turbo did to
+> rally, it will be because somebody loved the convergence more than the
+> crown.*
+
 ## 🤝 Contributing
 
 | Area | How you can help |

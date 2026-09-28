@@ -52,10 +52,25 @@ Two powerplants — Arctic precision, bge recall — fused by RRF. Rally enginee
 didn't twin-charge because one turbo was broken; they did it from love of the
 paradigm, and the discoveries followed. Same here: the architecture takes any
 fastembed model through one variable, and per-model collections make
-overseeding **zero-migration**. Eight cores fly the balanced 4+4; stronger
-silicon deserves larger turbos (`bge-large-en-v1.5`, `arctic-embed-l`) —
-measure them on your corpus with `eval/bench_versus.py` and tell us what won.
-Falsification is a contribution.
+overseeding **zero-migration**. Falsification is a contribution.
+
+### 🔧 Recommendation — pick your turbos
+
+| Your hardware | Suggestion | Why |
+|---|---|---|
+| 8 cores | default dual (arctic-m + bge-base), `balanced` 4+4 | the efficiency crown |
+| 12–16 cores | same dual, `performance` 8+8 | headroom well spent |
+| Strong CPU + RAM | `BAAI/bge-large-en-v1.5` and/or `Snowflake/snowflake-arctic-embed-l` (1024d) | precision ceiling rises with dim |
+| Keyword-heavy corpus | try single `BAAI/bge-base-en-v1.5` | our bench: BM25-adjacent turf favors focus |
+
+```bash
+OPENCODE_MEMORY_EMBED_MODELS="BAAI/bge-large-en-v1.5,Snowflake/snowflake-arctic-embed-l"
+rtr-cli index          # new collections fill; old ones: rtr-cli janitor
+```
+
+Bigger is not always better — measure on your corpus with
+`eval/bench_versus.py` before you believe us. If your turbo wins, tell us;
+an overseeding report with numbers is a first-class contribution.
 
 ---
 
@@ -89,6 +104,8 @@ agent CLI and local-LLM setup.
 `eval/` holds the versus bench: **RTR vs classic RAG**, measured on real
 documentation with a published taxonomy (self-retrieval, rare-term lookup,
 conceptual recall, scoped vs global), rendered as Mermaid and SVG.
+
+![RTR vs RAG — recall@3 by taxon](eval/versus.svg)
 
 ```
 uvx --from <wheel> python -m execution.rtr_eval   # release gate (no regressal)

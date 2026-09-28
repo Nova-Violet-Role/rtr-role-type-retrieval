@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: Nova-Violet Role ORG
+# SPDX-License-Identifier: EUPL-1.2 OR AGPL-3.0-or-later
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rtr-role-type-retrieval"
+version = "0.3.0"
+description = "RTR Role Type Retrieval — RRF-heuristic DTD semantic-capable retriever for opencode (dual ONNX ensemble, CPU-first)"
+readme = "README-PYPI.md"
+requires-python = ">=3.10"
+license = { text = "Dual-licensed under EUPL-1.2 and AGPL-3.0-or-later. See LICENSE-EUPL-1.2.txt and LICENSE-AGPL-3.0.txt." }
+authors = [{ name = "Nova-Violet Role ORG" }]
+keywords = ["rag", "retrieval", "mcp", "opencode", "onnx", "rrf", "embeddings", "local-first"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)",
+  "License :: OSI Approved :: GNU Affero General Public License v3",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+  "chromadb",
+  "fastembed",
+  "watchdog",
+  "fastmcp",
+  "pyyaml",
+]
+urls = { Homepage = "https://github.com/Nova-Violet-Role/rtr-role-type-retrieval" }
+
+[project.scripts]
+rtr-mcp = "execution.memory_mcp_server:main"
+rtr-cli = "execution.memory_cli:main"
+xpajonx-memory-mcp = "execution.memory_mcp_server:main"
+xpajonx-memory-cli = "execution.memory_cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["execution"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"LICENSE-EUPL-1.2.txt" = "rtr_role_type_retrieval-0.3.0.dist-info/LICENSE-EUPL-1.2.txt"
+"LICENSE-AGPL-3.0.txt" = "rtr_role_type_retrieval-0.3.0.dist-info/LICENSE-AGPL-3.0.txt"
+"NOTICE" = "rtr_role_type_retrieval-0.3.0.dist-info/NOTICE"

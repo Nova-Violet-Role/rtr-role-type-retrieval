@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: Nova-Violet Role ORG
+# SPDX-License-Identifier: EUPL-1.2 OR AGPL-3.0-or-later
+.venv/
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
+.local_vector_db/
+wiki_registry.json
+extra_roots.json
+lexikon_global.json
+.DS_Store

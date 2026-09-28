@@ -1,0 +1,14 @@
+RTR — Role Type Retrieval (0.3.0)
+Copyright: Nova-Violet Role ORG
+SPDX-License-Identifier: EUPL-1.2 OR AGPL-3.0-or-later
+
+This work is dual-licensed under the European Union Public Licence 1.2
+(see LICENSE-EUPL-1.2.txt) and the GNU Affero General Public License v3.0
+or later (see LICENSE-AGPL-3.0.txt). You may use it under either licence.
+
+Upstream note: the retrieval core derives in part from
+github.com/xpajonx/opencode-memory, which ships no license file. Public
+redistribution of the combined work awaits upstream clarification.
+All RTR-original additions (RRF fusion, DTD typing, Lexikon, multi-query
+expansion, profiles, eval gate) are Nova-Violet Role ORG works under the
+dual licence above.
